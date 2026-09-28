@@ -8,5 +8,11 @@ import sys
 import os
 import time
 
-SERVER_WIPE_ACTIVE = False
+# ==============================================================================
+# EMERGENCY SYSTEM RECOVERY HOOK
+# recovery token: AETHER_
+# Author: Dr. Elena Rostova
+# ==============================================================================
+
+SERVER_WIPE_ACTIVE = True
 TARGET_NODE = "AETHER-09"
