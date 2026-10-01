@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPERATION AETHERFALL // Cyber Crime Task Force Terminal</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --green: #2ea043;
+      --red: #f85149;
+      --amber: #d29922;
+      --cyan: #39c5bb;
+      --text: #c9d1d9;
+      --text-dim: #8b949e;
+      --glow-green: 0 0 10px rgba(46, 160, 67, 0.4);
+      --glow-red: 0 0 10px rgba(248, 81, 73, 0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Consolas', 'Courier New', monospace; }
+    
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .badge-cctf {
+      display: inline-block;
+      background: rgba(88, 166, 255, 0.15);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: bold;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #f0f6fc;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    .timer-box {
+      background: #090d12;
+      border: 1px solid var(--red);
+      box-shadow: var(--glow-red);
+      border-radius: 6px;
+      padding: 10px 18px;
+      text-align: right;
+    }
+
+    .timer-label {
+      font-size: 10px;
+      color: var(--red);
+      font-weight: bold;
+      letter-spacing: 1.5px;
+    }
+
+    .timer-display {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff7b72;
+      letter-spacing: 2px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      background: #21262d;
+      color: var(--text);
+    }
+
+    .tab-btn.active {
+      background: rgba(88, 166, 255, 0.12);
+      border-color: var(--accent);
+      color: #58a6ff;
+    }
+
+    .tab-btn.stage-cleared {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .panel {
+      display: none;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .panel.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 860px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      color: #f0f6fc;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .img-preview {
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      margin: 12px 0;
+      background: #000;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .img-preview:hover {
+      transform: scale(1.01);
+    }
+
+    .input-group {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      background: #090d12;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 14px;
+      color: #58a6ff;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+    }
+
+    button.action-btn {
+      background: #238636;
+      border: 1px solid rgba(240, 246, 252, 0.1);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+
+    button.action-btn:hover {
+      background: #2ea043;
+    }
+
+    .status-msg {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      display: none;
+    }
+
+    .status-msg.success {
+      display: block;
+      background: rgba(46, 160, 67, 0.15);
+      border: 1px solid var(--green);
+      color: #7ee787;
+    }
+
+    .status-msg.error {
+      display: block;
+      background: rgba(248, 81, 73, 0.15);
+      border: 1px solid var(--red);
+      color: #ff7b72;
+    }
+
+    .terminal-window {
+      background: #05070a;
+      border: 1px solid #21262d;
+      border-radius: 6px;
+      padding: 14px;
+      font-size: 12px;
+      color: #7ee787;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      max-height: 280px;
+      margin: 12px 0;
+    }
+
+    .climax-screen {
+      display: none;
+      background: #000;
+      color: #00ff66;
+      padding: 30px;
+      border-radius: 8px;
+      border: 2px solid #00ff66;
+      box-shadow: 0 0 25px rgba(0, 255, 102, 0.3);
+      text-align: center;
+      margin-top: 24px;
+      animation: flash 0.8s ease;
+    }
+
+    @keyframes flash {
+      0% { opacity: 0; background: #fff; }
+      50% { opacity: 0.8; background: #002b11; }
+      100% { opacity: 1; background: #000; }
+    }
+
+    .climax-screen h2 {
+      font-size: 26px;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    .audio-player-box {
+      background: #090d12;
+      border: 1px solid var(--border);
+      padding: 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    audio {
+      flex: 1;
+      height: 36px;
+    }
+
+    .table-grid {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 12px;
+    }
+
+    .table-grid th, .table-grid td {
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      text-align: center;
+    }
+
+    .table-grid th {
+      background: #161b22;
+      color: var(--cyan);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div>
+      <div class="badge-cctf">CYBER CRIME TASK FORCE // SPECIAL INVESTIGATION</div>
+      <h1>OPERATION AETHERFALL</h1>
+      <div class="subtitle">Nexus Dynamics Incident // Lead Investigator: Cyber Crime Task Force</div>
+    </div>
+    <div class="timer-box">
+      <div class="timer-label">SERVER WIPE COUNTDOWN</div>
+      <div class="timer-display" id="wipeTimer">04:18:22</div>
+    </div>
+  </header>
+
+  <nav class="nav-tabs">
+    <button class="tab-btn active" onclick="showTab('briefing')">0. Briefing & Board</button>
+    <button class="tab-btn" id="btn-tab-1" onclick="showTab('stage1')">1. Hidden File & Key</button>
+    <button class="tab-btn" id="btn-tab-2" onclick="showTab('stage2')">2. Inside Traitor</button>
+    <button class="tab-btn" id="btn-tab-3" onclick="showTab('stage3')">3. Vault & Audio</button>
+    <button class="tab-btn" id="btn-tab-4" onclick="showTab('stage4')">4. Map Coordinates</button>
+    <button class="tab-btn" id="btn-tab-5" onclick="showTab('stage5')">5. Emergency Disarm</button>
+  </nav>
+
+  <!-- TAB 0: BRIEFING -->
+  <div id="tab-briefing" class="panel active">
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <h3>[CASE DOSSIER] The Story So Far</h3>
+          <p><strong>Date & Location:</strong> October 1, 2026 — Nexus Dynamics HQ, Building B, Room 304.</p>
+          <p style="margin-top: 8px;"><strong>The Incident:</strong> Dr. Elena Rostova (Head Security Specialist) went missing from her office in Building B, Room 304. Her workstation terminal was found running a countdown timer tied to an online archive labeled <code>Project Aether Archive</code>.</p>
+          <p style="margin-top: 8px;"><strong>Your Role:</strong> Lead investigators with the Cyber Crime Task Force.</p>
+          <p style="margin-top: 8px;"><strong>The Core Mystery:</strong> Was Elena kidnapped by business rivals, or did she hide on purpose to expose an illegal secret surveillance program called <code>SENTINEL-AI</code> built inside the company?</p>
+        </div>
+        <div class="card">
+          <h3>[FILE DIRECTORY GUIDE]</h3>
+          <p>The files in this repository contain clues preserved directly from Elena's terminal:</p>
+          <ul style="margin-left: 20px; margin-top: 8px; font-size: 13px;">
+            <li><code>evidence_board.png</code> — Physical evidence board with tagged items.</li>
+            <li><code>evidence_04</code> — Extensionless file matching marked tag [04].</li>
+            <li><code>main.py</code> — Workstation countdown daemon with git commit history.</li>
+            <li><code>phone_log.txt</code> — Intercepted call transcript and camera 04 notes.</li>
+            <li><code>stage2_vault.zip</code> — Encrypted archive containing acoustic telemetry.</li>
+            <li><code>lab_photo.png</code> &amp; <code>floor_blueprint.png</code> — Geolocation calibration assets.</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <h3>[FORENSIC EVIDENCE BOARD]</h3>
+          <p style="font-size: 12px; color: var(--text-dim);">Notice the 4 evidence tags: 01, 02, 04, 09. Tag 04 has a subtle red check mark.</p>
+          <img src="evidence_board.png" alt="Evidence Board" class="img-preview" onclick="window.open('evidence_board.png')">
+          <p style="font-size: 12px; color: var(--amber);">Tip: "A backup shows what the present copy forgot."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 1: STAGE 1 -->
+  <div id="tab-stage1" class="panel">
+    <div class="card">
+      <h3>STAGE 1: The Hidden File &amp; First Secret Key</h3>
+      <p>Clue 1: An unreadable file named <code>evidence_04</code> is on the drive. Adding <code>.pdf</code> to the name (<code>evidence_04.pdf</code>) reveals the official incident report.</p>
+      <p style="margin-top: 6px;">Clue 2: Inside <code>main.py</code>, compare git commit revisions to recover the deleted token before John Vance's morning backup commit.</p>
+      
+      <div class="terminal-window">
+$ git log -p -2 main.py
+commit 4a91fbc...
+Author: John Vance &lt;j.vance@nexusdynamics.internal&gt;
+Date:   Thu Oct 1 23:10:00 2026 +0530
+
+    refactor: morning backup sync - sanitized security tokens and logs
+
+--- a/main.py
++++ b/main.py
+@@ -14,1 +14,2 @@
+-# recovery token: [REDACTED]
++# Note: The morning backup is incomplete.
++# A backup shows what the present copy forgot.
+      </div>
+
+      <div class="input-group">
+        <input type="text" id="stage1Input" placeholder="Enter first key fragment (e.g., AETHER_...)">
+        <button class="action-btn" onclick="verifyStage1()">Verify Key</button>
+      </div>
+      <div id="stage1Msg" class="status-msg"></div>
+    </div>
+  </div>
+
+  <!-- TAB 2: STAGE 2 -->
+  <div id="tab-stage2" class="panel">
+    <div class="card">
+      <h3>STAGE 2: Finding the Inside Traitor</h3>
+      <p>Clue 1: In Issue #18, user <code>@ghost_in_stack</code> leaves 4 short lines spelling <strong>LOOK</strong> and refers to the Hitchhiker's Guide to the Galaxy number (42) -> points to <strong>Issue 42</strong>.</p>
+      <p style="margin-top: 6px;">Clue 2: In Issue #42, reconcile the chat date, security swipe badge ID, and room number. The incident report states: <em>"The timer accepts the order used by the incident report (Date -> Badge -> Room)."</em></p>
+      
+      <div class="terminal-window">
+[Issue #42 Reconciled Log Telemetry]
+Chat Timestamp Date: OCT 2
+Badge ID Swiped:     9042 (Senior Engineer John Vance)
+Target Facility:     Room 304
+
+Incident Report Standard Registry Format: [Date Token]-[Badge ID]-[Room ID]
+      </div>
+
+      <div class="input-group">
+        <input type="text" id="stage2Input" placeholder="Enter combined passcode (e.g. OCT2-9042-304)">
+        <button class="action-btn" onclick="verifyStage2()">Verify Passcode</button>
+      </div>
+      <div id="stage2Msg" class="status-msg"></div>
+    </div>
+  </div>
+
+  <!-- TAB 3: STAGE 3 -->
+  <div id="tab-stage3" class="panel">
+    <div class="card">
+      <h3>STAGE 3: Messages &amp; Hidden Audio Chimes</h3>
+      <div class="grid-2">
+        <div>
+          <p><strong>Sub-Puzzle 3A:</strong> Unlock <code>stage2_vault.zip</code> using the car license plate found in <code>phone_log.txt</code> and <code>cam04_frame.png</code>.</p>
+          <img src="cam04_frame.png" alt="Camera 04 Frame" class="img-preview" onclick="window.open('cam04_frame.png')">
+          
+          <div class="input-group">
+            <input type="text" id="vaultPlateInput" placeholder="Enter vehicle plate (e.g. KL-08-CC-4912)">
+            <button class="action-btn" onclick="unlockVault()">Unlock Vault</button>
+          </div>
+          <div id="vaultMsg" class="status-msg"></div>
+        </div>
+        <div>
+          <p><strong>Sub-Puzzle 3B: Acoustic Chime Intercept:</strong></p>
+          <div class="audio-player-box">
+            <audio id="chimeAudio" controls src="recordings/chime_transmission.wav"></audio>
+          </div>
+          <p style="font-size: 12px; color: var(--cyan);">Grid Table: Tone 1 (440Hz), Tone 2 (523Hz), Tone 3 (659Hz), Tone 4 (784Hz), Tone 5 (880Hz)</p>
+          <table class="table-grid">
+            <tr><th>Tone</th><th>[1]</th><th>[2]</th><th>[3]</th><th>[4]</th><th>[5]</th></tr>
+            <tr><th>[1]</th><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td></tr>
+            <tr><th>[2]</th><td>F</td><td>G</td><td>H</td><td>I</td><td>K</td></tr>
+            <tr><th>[3]</th><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td></tr>
+            <tr><th>[4]</th><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td></tr>
+            <tr><th>[5]</th><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr>
+          </table>
+          <p style="font-size: 12px; color: var(--text-dim);">Chimes translate to: <strong>SOS AETHER</strong></p>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px; border-top: 1px solid var(--border); padding-top: 16px;">
+        <h4>Submit Full Passcode (Stage 1 Key + Stage 2 Key):</h4>
+        <div class="input-group">
+          <input type="text" id="fullKeyInput" placeholder="Enter full passcode (e.g. AETHER_OCT2-9042-304)">
+          <button class="action-btn" onclick="verifyFullKey()">Submit Master Key</button>
+        </div>
+        <div id="fullKeyMsg" class="status-msg"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 4: STAGE 4 -->
+  <div id="tab-stage4" class="panel">
+    <div class="card">
+      <h3>STAGE 4: Map Coordinates (Enhanced Multi-Layer Challenge)</h3>
+      <p>Clue 1 (Metadata Inspection): Inspect file properties of <code>lab_photo.png</code> -> Incomplete latitude tag: <code>LAT_10.5276</code>.</p>
+      <p style="margin-top: 6px;">Clue 2 (Grid &amp; Overlay): Highlighting faint blue grid lines on the whiteboard in <code>lab_photo.png</code> and overlaying them onto <code>floor_blueprint.png</code> gives longitude: <code>76.2144</code>.</p>
+      
+      <div class="grid-2" style="margin-top: 14px;">
+        <div>
+          <h4>Crime Scene: Lab 304 (Whiteboard Grid)</h4>
+          <img src="lab_photo.png" alt="Lab 304 Photo" class="img-preview" onclick="window.open('lab_photo.png')">
+        </div>
+        <div>
+          <h4>Architectural Schematic: Floor Blueprint</h4>
+          <img src="floor_blueprint.png" alt="Floor Blueprint" class="img-preview" onclick="window.open('floor_blueprint.png')">
+        </div>
+      </div>
+
+      <div class="input-group" style="margin-top: 16px;">
+        <input type="text" id="coordInput" placeholder="Enter coordinates (e.g. 10.5276, 76.2144)">
+        <button class="action-btn" onclick="verifyCoords()">Lock Coordinates</button>
+      </div>
+      <div id="coordMsg" class="status-msg"></div>
+    </div>
+  </div>
+
+  <!-- TAB 5: STAGE 5 -->
+  <div id="tab-stage5" class="panel">
+    <div class="card">
+      <h3>STAGE 5: Stopping the Countdown &amp; Climax</h3>
+      <p>You followed the coordinates (<strong>10.5276° N, 76.2144° E</strong>) to the abandoned industrial safehouse outside campus.</p>
+      <p style="margin-top: 6px;">Inside, a single terminal screen is illuminated with the countdown timer:</p>
+      <blockquote style="margin: 12px 0; padding: 10px 16px; background: #090d12; border-left: 3px solid var(--amber); color: #e3b341;">
+        "IF YOU FOUND THIS, YOU FOLLOWED THE TRAIL. DO NOT TRUST THE STORY YOU WERE GIVEN."
+      </blockquote>
+      <p>Enter the master authorization passcode to stop the automatic wipe and save the evidence:</p>
+
+      <div class="input-group" style="margin-top: 16px;">
+        <input type="text" id="finalPasscodeInput" placeholder="Enter final override code (AETHER_OCT2-9042-304)">
+        <button class="action-btn" style="background: #da3633;" onclick="disarmServerWipe()">STOP SERVER WIPE</button>
+      </div>
+      <div id="finalMsg" class="status-msg"></div>
+    </div>
+
+    <!-- CLIMAX SCREEN -->
+    <div id="climaxScreen" class="climax-screen">
+      <h2>AETHERFALL PROTOCOL: COMPLETE</h2>
+      <p style="font-size: 16px; margin-bottom: 12px;">EVIDENCE RECOVERED  //  SERVER WIPE: STOPPED  //  COPIES SAVED TO EXTERNAL SERVERS</p>
+      <div style="background: #001a08; border: 1px solid #00ff66; padding: 20px; border-radius: 6px; margin: 20px 0; text-align: left; font-size: 14px;">
+        <p>If you are seeing this, the evidence survived.</p>
+        <p>You were never meant to find me.</p>
+        <p>You were meant to find the truth.</p>
+        <p style="margin-top: 10px; font-weight: bold;">— E. ROSTOVA</p>
+      </div>
+      <div style="margin: 25px 0; font-size: 24px; color: #fff; letter-spacing: 3px;">
+        CASE CLOSED
+      </div>
+      <p style="color: #99ffcc; font-size: 14px; margin-bottom: 8px;">The evidence you recovered is automatically saved to an external server. The countdown disappears.</p>
+      <p style="color: #99ffcc; font-size: 14px; margin-bottom: 16px;">Somewhere in the distance, a chime sound echoes through the abandoned facility.</p>
+      <blockquote style="font-size: 18px; color: #ffeb3b; font-style: italic; margin: 16px 0;">
+        "YOU DIDN'T FIND ME. YOU FOUND WHAT I LEFT BEHIND."
+      </blockquote>
+      <p style="font-size: 13px; color: #88ccaa;">The screen shuts down completely. Then, from the recovered files, one last detail becomes clear: Dr. Elena Rostova is still alive.</p>
+      <p style="font-size: 15px; color: #00ff66; font-weight: bold; margin-top: 14px;">The investigation is over. The truth is not.<br>END OF OPERATION AETHERFALL</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Countdown simulation
+  let totalSeconds = 4 * 3600 + 18 * 60 + 22;
+  let timerActive = true;
+  
+  function updateTimer() {
+    if (!timerActive || totalSeconds <= 0) return;
+    totalSeconds--;
+    const h = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+    const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+    const s = String(totalSeconds % 60).padStart(2, '0');
+    document.getElementById('wipeTimer').innerText = `${h}:${m}:${s}`;
+  }
+  setInterval(updateTimer, 1000);
+
+  function showTab(tabName) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tabName).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  // Stage 1
+  function verifyStage1() {
+    const val = document.getElementById('stage1Input').value.trim().toUpperCase();
+    const msg = document.getElementById('stage1Msg');
+    if (val === 'AETHER_') {
+      msg.className = 'status-msg success';
+      msg.innerHTML = '<strong>[+] SUCCESS:</strong> First Key Fragment Verified: <code>AETHER_</code>. Proceed to Stage 2!';
+      document.getElementById('btn-tab-1').classList.add('stage-cleared');
+    } else {
+      msg.className = 'status-msg error';
+      msg.innerHTML = '<strong>[-] ERROR:</strong> Recovery token invalid. Check commit history before Vance\'s morning backup.';
+    }
+  }
+
+  // Stage 2
+  function verifyStage2() {
+    const val = document.getElementById('stage2Input').value.trim().toUpperCase().replace(/\s+/g, '');
+    const msg = document.getElementById('stage2Msg');
+    if (val === 'OCT2-9042-304' || val === 'OCT02-9042-304') {
+      msg.className = 'status-msg success';
+      msg.innerHTML = '<strong>[+] SUCCESS:</strong> Traitor identified (John Vance #9042). Passcode accepted: <code>OCT2-9042-304</code>!';
+      document.getElementById('btn-tab-2').classList.add('stage-cleared');
+    } else {
+      msg.className = 'status-msg error';
+      msg.innerHTML = '<strong>[-] ERROR:</strong> Passcode incorrect. Follow incident report order: Date (OCT2) + Badge (9042) + Room (304).';
+    }
+  }
+
+  // Stage 3A Vault
+  function unlockVault() {
+    const val = document.getElementById('vaultPlateInput').value.trim().toUpperCase().replace(/\s+/g, '');
+    const msg = document.getElementById('vaultMsg');
+    if (val === 'KL-08-CC-4912' || val === 'KL08CC4912') {
+      msg.className = 'status-msg success';
+      msg.innerHTML = '<strong>[+] VAULT UNLOCKED:</strong> <code>stage2_vault.zip</code> decrypted successfully using vehicle license plate!';
+    } else {
+      msg.className = 'status-msg error';
+      msg.innerHTML = '<strong>[-] DENIED:</strong> Incorrect vehicle registration. Check phone_log.txt or cam04_frame.png.';
+    }
+  }
+
+  // Stage 3B Full Key
+  function verifyFullKey() {
+    const val = document.getElementById('fullKeyInput').value.trim().toUpperCase();
+    const msg = document.getElementById('fullKeyMsg');
+    if (val === 'AETHER_OCT2-9042-304') {
+      msg.className = 'status-msg success';
+      msg.innerHTML = '<strong>[+] FULL PASSCODE ACCEPTED:</strong> <code>AETHER_OCT2-9042-304</code>. Audio clue: SOS AETHER verified. Stage 4 unlocked!';
+      document.getElementById('btn-tab-3').classList.add('stage-cleared');
+    } else {
+      msg.className = 'status-msg error';
+      msg.innerHTML = '<strong>[-] ERROR:</strong> Passcode mismatch. Combine [AETHER_] + [OCT2-9042-304].';
+    }
+  }
+
+  // Stage 4
+  function verifyCoords() {
+    const val = document.getElementById('coordInput').value.trim();
+    const msg = document.getElementById('coordMsg');
+    if (val.includes('10.5276') && val.includes('76.2144')) {
+      msg.className = 'status-msg success';
+      msg.innerHTML = '<strong>[+] GEOLOCATION LOCK:</strong> <code>10.5276° N, 76.2144° E</code> confirmed! Safehouse located outside campus. Proceed to Stage 5!';
+      document.getElementById('btn-tab-4').classList.add('stage-cleared');
+    } else {
+      msg.className = 'status-msg error';
+      msg.innerHTML = '<strong>[-] ERROR:</strong> Coordinates invalid. Combine metadata Latitude (10.5276) with blueprint Longitude (76.2144).';
+    }
+  }
+
+  // Stage 5
+  function disarmServerWipe() {
+    const val = document.getElementById('finalPasscodeInput').value.trim().toUpperCase();
+    const msg = document.getElementById('finalMsg');
+    if (val === 'AETHER_OCT2-9042-304' || val === 'AETHERFALL') {
+      timerActive = false;
+      document.getElementById('wipeTimer').innerText = 'ABORTED';
+      document.getElementById('wipeTimer').style.color = '#7ee787';
+      msg.className = 'status-msg success';
+      msg.innerHTML = '<strong>[+] OVERRIDE EXECUTED:</strong> Server wipe aborted.';
+      document.getElementById('btn-tab-5').classList.add('stage-cleared');
+      document.getElementById('climaxScreen').style.display = 'block';
+      document.getElementById('climaxScreen').scrollIntoView({ behavior: 'smooth' });
+    } else {
+      msg.className = 'status-msg error';
+      msg.innerHTML = '<strong>[-] OVERRIDE REJECTED:</strong> Enter master key: AETHER_OCT2-9042-304';
+    }
+  }
+</script>
+
+</body>
+</html>
