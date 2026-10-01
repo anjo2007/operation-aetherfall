@@ -1,0 +1,91 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R /F3 7 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 3819 >>
+stream
+0.1 0.15 0.25 rg
+40 730 532 25 re f
+BT /F1 14 Tf 1 1 1 rg 50 740 Td (CYBER CRIME TASK FORCE - SPECIAL INVESTIGATION DIVISION) Tj ET
+BT /F2 9 Tf 0.8 0.85 0.9 rg 430 740 Td (RESTRICTED // LAW ENFORCEMENT) Tj ET
+0.92 0.94 0.96 rg 40 640 532 80 re f
+0.7 0.75 0.8 RG 1 w 40 640 532 80 re s
+BT /F1 11 Tf 0.1 0.15 0.2 rg 55 705 Td (INCIDENT REPORT #IR-2026-092) Tj ET
+BT /F2 9 Tf 0.2 0.25 0.3 rg 55 690 Td (Date: October 2, 2026  |  Time of Call: 02:15 AM IST) Tj ET
+BT /F2 9 Tf 0.2 0.25 0.3 rg 55 675 Td (Investigator: Senior Agent John Vance  |  Badge: #9042) Tj ET
+BT /F2 9 Tf 0.2 0.25 0.3 rg 55 660 Td (Subject: Disappearance of Dr. Elena Rostova  |  Facility: Nexus Dynamics HQ) Tj ET
+BT /F2 9 Tf 0.2 0.25 0.3 rg 55 648 Td (Location of Incident: Building B, Room 304 [Cyber Defense Laboratory]) Tj ET
+BT /F1 11 Tf 0.15 0.2 0.35 rg 40 615 Td (1. SUMMARY OF SCENE & RECOVERY) Tj ET
+0.8 0.8 0.8 RG 40 610 532 0.5 re f
+BT /F2 9 Tf 0.15 0.15 0.2 rg
+40 595 Td (At 01:50 AM on October 2, 2026, building security reported the sudden absence of Dr. Elena Rostova,) Tj
+0 -13 Td (Chief Information Security Specialist. Her workstation terminal in Room 304 was left running an active) Tj
+0 -13 Td (countdown sequence tied to an unauthorized remote sync labeled Project Aether Archive.) Tj
+0 -13 Td (Primary security perimeter logs indicate forced logoff event triggered at 01:47 AM IST.) Tj ET
+BT /F1 11 Tf 0.15 0.2 0.35 rg 40 525 Td (2. PHYSICAL & DIGITAL EVIDENCE INVENTORY) Tj ET
+0.8 0.8 0.8 RG 40 520 532 0.5 re f
+BT /F2 9 Tf 0.15 0.15 0.2 rg
+50 500 Td ([EV-01]  Personal journal with torn pages discovered in desk wastebasket.) Tj
+0 -14 Td ([EV-02]  Unmarked black USB drive recovered from USB port 2 of terminal.) Tj
+0 -14 Td ([EV-03]  Security Access Card: Badge #9042 found dropped directly beneath Elena Rostova's desk.) Tj
+0 -14 Td ([EV-04]  Live Workstation Buffer Dump [Incident Log IR-2026-092 - current document].) Tj
+0 -14 Td ([EV-09]  Server AETHER-09 Network Telemetry: 40GB outbound encrypted packet stream to external IP.) Tj ET
+BT /F1 11 Tf 0.15 0.2 0.35 rg 40 405 Td (3. CAPTURED SCREEN TERMINAL BUFFER (ROOM 304)) Tj ET
+0.8 0.8 0.8 RG 40 400 532 0.5 re f
+0.08 0.1 0.12 rg 40 305 532 85 re f
+BT /F3 9 Tf 0.2 0.9 0.4 rg
+50 375 Td (SYSTEM ALERT: Unauthorized root bypass detected in Lab 304) Tj
+0 -13 Td (ROSTOVA MEMO: 'If you are reading this, Julian bypassed the system. Do not trust the morning backup.') Tj
+0 -13 Td (STATUS: CRITICAL ARCHIVE EXFILTRATION IN PROGRESS) Tj
+0 -13 Td (FAILSAFE: SERVER WIPE INITIATED - Passcode required to abort sequence.) Tj
+0 -13 Td (TERMINAL PROTOCOL NOTE: The timer accepts the order used by the incident report.) Tj ET
+BT /F1 11 Tf 0.15 0.2 0.35 rg 40 275 Td (4. INVESTIGATIVE NOTES & PROTOCOLS) Tj ET
+0.8 0.8 0.8 RG 40 270 532 0.5 re f
+BT /F2 9 Tf 0.2 0.2 0.2 rg
+40 250 Td (- Security badge #9042 belongs to Senior Systems Engineer John Vance.) Tj
+0 -13 Td (- Field inspection notes date verification: OCT 2 confirmed in room biometric ledger.) Tj
+0 -13 Td (- Access room parameter registered as Room 304.) Tj
+0 -13 Td (- System disarm console requires sequence format aligned with standard incident registry:) Tj
+0 -13 Td (  [Date Token] - [Badge ID] - [Room ID]) Tj
+0 -13 Td (- Further surveillance camera and vehicle logs are archived in phone_log.txt and cam04_frame.png.) Tj ET
+0.95 0.95 0.95 rg 40 100 240 50 re f
+0.7 0.7 0.7 RG 1 w 40 100 240 50 re s
+BT /F2 8 Tf 0.3 0.3 0.3 rg 45 135 Td (VERIFIED BY TASK FORCE LEAD:) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 45 120 Td (Agent J. Vance, Senior Forensic Lead) Tj ET
+BT /F2 8 Tf 0.4 0.4 0.4 rg 45 107 Td (Status: Under Active Investigation) Tj ET
+0.8 0.1 0.1 RG 2 w 350 100 180 45 re s
+BT /F1 12 Tf 0.8 0.1 0.1 rg 370 125 Td (EVIDENCE ITEM #04) Tj ET
+BT /F2 8 Tf 0.8 0.1 0.1 rg 375 110 Td (CYBER CRIME TASK FORCE ARCHIVE) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000261 00000 n 
+0000004132 00000 n 
+0000004207 00000 n 
+0000004277 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+4350
+%%EOF
