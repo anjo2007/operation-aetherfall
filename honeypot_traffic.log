@@ -1,0 +1,26 @@
+# ==============================================================================
+# NEXUS DYNAMICS PERIMETER FIREWALL (IPTABLES-DUMP)
+# CAPTURE WINDOW: 2026-10-01 22:00:00 TO 2026-10-02 02:00:00 IST
+# INTERFACE: eth0 (EXTERNAL WAN) & eth1 (INTERNAL BACKBONE)
+# ==============================================================================
+
+[22:01:14] DROP IN=eth0 OUT= SRC=185.220.101.4 DST=10.14.3.4 LEN=60 PROTO=TCP SPT=44312 DPT=443 SYN
+[22:04:22] DROP IN=eth0 OUT= SRC=194.26.29.112 DST=10.14.3.4 LEN=60 PROTO=TCP SPT=51200 DPT=22 SYN
+[22:15:33] DROP IN=eth0 OUT= SRC=45.146.164.110 DST=10.14.3.4 LEN=52 PROTO=TCP SPT=38910 DPT=8080 SYN
+[22:30:19] DROP IN=eth0 OUT= SRC=91.240.118.242 DST=10.14.3.4 LEN=64 PROTO=TCP SPT=60114 DPT=3389 SYN
+[22:45:00] ALERT [DECOY_SCAN] External port probe detected from autonomous scanner 185.191.171.12.
+[23:01:10] DROP IN=eth0 OUT= SRC=103.208.220.10 DST=10.14.3.4 LEN=48 PROTO=TCP SPT=55102 DPT=8443 SYN
+[23:18:44] DROP IN=eth0 OUT= SRC=198.235.24.11 DST=10.14.3.4 LEN=60 PROTO=TCP SPT=49112 DPT=21 SYN
+[23:42:01] DROP IN=eth0 OUT= SRC=89.248.163.204 DST=10.14.3.4 LEN=52 PROTO=TCP SPT=58902 DPT=80 SYN
+[00:15:22] DROP IN=eth0 OUT= SRC=193.163.125.7 DST=10.14.3.4 LEN=60 PROTO=TCP SPT=41209 DPT=22 SYN
+[00:45:19] DROP IN=eth0 OUT= SRC=185.180.143.12 DST=10.14.3.4 LEN=64 PROTO=TCP SPT=59901 DPT=443 SYN
+[01:14:02] ACCEPT IN=eth1 OUT=eth1 SRC=10.14.3.4 DST=10.14.0.9 LEN=1500 PROTO=UDP SPT=9000 DPT=9000
+[01:14:15] ALERT [HIGH_VOLUME] Node 10.14.3.4 transmitting 40GB burst to internal relay AETHER-09.
+
+# ==============================================================================
+# FORENSIC NETWORK ANALYST NOTE:
+# The 10 inbound external IP drops above were automated internet background scans (noise).
+# The actual incident communication occurred entirely on the internal security VLAN!
+# Telemetry archives were mirrored to the perimeter security repository:
+# Repository: https://github.com/anjo2007/nexus-perimeter-telemetry
+# ==============================================================================

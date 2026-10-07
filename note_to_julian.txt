@@ -1,0 +1,22 @@
+================================================================================
+RECOVERED MEMO (DESK HANDWRITTEN NOTE - ROOM 304)
+Evidence Item Ref: EV-02A
+================================================================================
+
+Julian,
+
+If you are seeing this before the morning shift, do not run the scheduled backup script. 
+Someone with elevated administrative privileges has been altering the telemetry daemons 
+on server AETHER-09 and sanitizing git commits.
+
+I pulled the perimeter camera feeds from Gate B. John claims he only stopped by to grab 
+his jacket, but his car remained parked in bay B past 01:40 AM. 
+
+The security relay archives are cloned under:
+https://github.com/anjo2007/nexus-perimeter-telemetry
+
+If my terminal locks, compare the commit logs before Vance's sync.
+A backup shows what the present copy forgot.
+
+— Elena
+================================================================================

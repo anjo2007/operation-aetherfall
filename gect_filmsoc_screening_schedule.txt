@@ -1,0 +1,48 @@
+================================================================================
+GECT FILM SOCIETY // SCREENING & DISSCUSSION LEDGER
+Government Engineering College, Thrissur (GECT)
+Curated for: Operation Aetherfall Investigation Sprint
+================================================================================
+
+[OCTOBER CINE-INVESTIGATION LINEUP]
+
+1. [OCTOBER 1] ORU CBI DIARY KURIPPU (Dir. K. Madhu, 1988)
+   Theme: The Dummy Theory & Planted Evidence
+   Film Soc Note: 
+   "When Sethurama Iyer inspects the scene, the most obvious piece of evidence 
+    is often intentionally placed to misdirect. Notice Badge #9042 lying under 
+    Elena's desk—did the perpetrator drop it in haste, or was it intentionally 
+    used to create an inside audit trail?"
+
+2. [OCTOBER 2] DRISHYAM (Dir. Jeethu Joseph, 2013)
+   Theme: The Unforgettable Date (October 2)
+   Film Soc Note: 
+   "'Octobor Randam theeyathi njanum koodumbavum...' 
+    In Malayalam investigative pop culture, October 2 is the ultimate date alibi. 
+    In our investigation ledger, the date token OCT 2 (OCT2) is the primary key 
+    that unlocks the incident reconciliation sequence!"
+
+3. [OCTOBER 3] YAVANIKA (Dir. K.G. George, 1982)
+   Theme: The Tabla Artist Who Disappeared into the Night
+   Film Soc Note:
+   "A disappearance from a closed room is never a random kidnapping. 
+    The person who vanished had an escape blueprint prepared long before the curtain fell. 
+    Elena's whiteboard contains the architectural coordinates."
+
+4. [OCTOBER 4] SANDESHAM (Dir. Sathyan Anthikad, 1991)
+   Theme: "Poland-ine patti oraksharam mindaruthu!"
+   Film Soc Note:
+   "Don't get distracted by foreign firewall IP addresses in honeypot_traffic.log! 
+    The crime is happening right inside Building B, Room 304. Keep your eyes on 
+    the local perimeter network."
+
+5. [OCTOBER 5] ANJAAM PATHIRAA (Dir. Midhun Manuel Thomas, 2020)
+   Theme: Digital Forensics & Acoustic Signatures
+   Film Soc Note:
+   "The serial transmission leaves acoustic fingerprints. 
+    The repeating chimes recorded at Gate B match the 5x5 frequency matrix. 
+    Decode the chimes to hear Elena's emergency broadcast: SOS AETHER."
+
+================================================================================
+GECT Film Soc Motto: "In cinema as in forensics—every frame holds the truth."
+================================================================================

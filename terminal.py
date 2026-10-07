@@ -28,9 +28,9 @@ BANNER = r"""
 ================================================================================
 """
 
-COUNTDOWN_HOURS = 4
-COUNTDOWN_MINUTES = 18
-COUNTDOWN_SECONDS = 32
+COUNTDOWN_HOURS = 2
+COUNTDOWN_MINUTES = 0
+COUNTDOWN_SECONDS = 0
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -137,6 +137,7 @@ def stage_3_flow(completed_stages):
     if full_key == "AETHER_OCT2-9042-304":
         print("\n\033[92m[+] FULL MASTER KEY ACCEPTED: AETHER_OCT2-9042-304\033[0m")
         print("[+] Access granted to Stage 4 forensic geolocation grid!")
+        print("\033[96m[!] OFFCAMPUS SAFEHOUSE BEACON LOCATED: https://github.com/anjo2007/aether-safehouse-node\033[0m")
         completed_stages.add(3)
     else:
         print("\n\033[91m[-] ERROR: Passcode mismatch. Combine [AETHER_] + [OCT2-9042-304].\033[0m")

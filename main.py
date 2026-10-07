@@ -23,7 +23,8 @@ PURGE_TIMESTAMP = "2026-10-02 23:59:59 IST"
 def print_workstation_status():
     print("=" * 70)
     print(" NEXUS DYNAMICS // WORKSTATION TERMINAL B-304")
-    print(" STATUS: LOCKDOWN PROTOCOL ACTIVE")
+    print(" PRESENTED BY: FOSS GECT x GECT FILM SOCIETY")
+    print(" STATUS: LOCKDOWN PROTOCOL ACTIVE // 2-HOUR TIMER: 02:00:00")
     print("=" * 70)
     print(f" [!] RECOVERY SYNC: Project Aether Archive [Live]")
     print(f" [!] NETWORK EXFILTRATION: 40GB outbound transfer flagged.")
